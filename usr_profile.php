@@ -1,8 +1,8 @@
 <?php
-session_start(); 
+session_start();
     if(!isset($_SESSION['userid']))
    {
-    header("location:make_login.php");
+    header("location:login.php");
    }
    else
    {
@@ -18,6 +18,6 @@ session_start();
 </head>
 
 <body>
-	
+
 
 </body>
