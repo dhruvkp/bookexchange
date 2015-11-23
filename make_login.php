@@ -19,10 +19,7 @@
         if($newhash==$hash)
         {
             $_SESSION['userid']=$row['user_id'];
-          ?><script type="text/javascript">
-         window.location.href = "user_profile.php";
-          </script>
-<?php
+            header("Location: user_profile.php");
         }
         else
             echo "password is wrong.";
