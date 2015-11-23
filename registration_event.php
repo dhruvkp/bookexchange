@@ -26,6 +26,6 @@
     $sql = "Insert into User(firstname,lastname,email,username,gender,dob,password_hash,address1,address2,zipcode,contact_no,status) values ('".$firstname."','".$lastname."','".$email."','".$username."','".$gender."','".$newDate."','".$password_hash."','".$address1."','".$address2."','".$zipcode."','".$contact."','under_review');";
 
     $res=query($sql);
-    header("Location: http://localhost:8888/bookexchange/login.php");
+    header("Location: login.php");
     die();
 ?>

@@ -1,4 +1,4 @@
- <?php
+<?php
 $db =null;
 
 function connectdb()
