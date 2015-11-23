@@ -1,10 +1,11 @@
 <?php
+    session_start();
     include 'connection/connection.php';
     connectdb();
 
     $email=$_POST['email'];
     $password=$_POST['password'];
-    $sql="select password_hash from User where email='".$email."' or username='".$email."';";
+    $sql="select user_id, password_hash from User where email='".$email."' or username='".$email."';";
     $result = query($sql);
     if($result->num_rows == 0)
     {
@@ -17,7 +18,11 @@
         $newhash=md5($password);
         if($newhash==$hash)
         {
-            echo "password is correct.";
+            $_SESSION['userid']=$row['user_id'];
+          ?><script type="text/javascript">
+         window.location.href = "usr_profile.php";
+          </script>
+<?php
         }
         else
             echo "password is wrong.";
