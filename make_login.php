@@ -20,7 +20,7 @@
         {
             $_SESSION['userid']=$row['user_id'];
           ?><script type="text/javascript">
-         window.location.href = "usr_profile.php";
+         window.location.href = "user_profile.php";
           </script>
 <?php
         }
