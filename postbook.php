@@ -6,8 +6,10 @@ session_start();
    }
    else
    {
-   	echo "do something";
-
+        include 'header.php';
    }
+?>
 
-   ?>
+<?
+    include 'footer.php';
+?>
