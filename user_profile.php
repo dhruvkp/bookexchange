@@ -6,18 +6,13 @@ session_start();
    }
    else
    {
-    echo $_SESSION['userid'];
+    include 'header.php';
     }
 
 ?>
-<!DOCTYPE HTML>
-<html>
-<head>
-<title>Book exchange</title>
 
-</head>
+<p>Here is my user profile code.</p>
 
-<body>
-
-
-</body>
+<?php
+include 'footer.php';
+?>
