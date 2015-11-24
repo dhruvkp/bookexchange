@@ -9,6 +9,81 @@ session_start();
         include 'header.php';
    }
 ?>
+    <div class="main">
+      <div class="shop_top">
+         <div class="container">
+                        <form action="postbook_event.php" id="register_form" method="POST">
+                                <div class="register-top-grid">
+                                        <h3>ITEM INFORMATION</h3>
+                                        <div class="top">
+                                            <span>Title<label>*</label></span>
+                                            <input name="title" type="text">
+                                        </div>
+                                        <div class="top">
+                                            <span>Author<label>*</label></span>
+                                            <input name="author" type="text">
+                                        </div>
+                                        <div class="top">
+                                            <span>Price<label>*</label></span>
+                                            <input name="price" type="text">
+                                        </div>
+                                        <div class="top">
+                                            <span>Description<label>*</label></span>
+                                            <input name="description" type="text">
+                                        </div>
+                                        <div class="top">
+                                            <span>Condition</span>
+                                            <select name="condition" id="condition">
+                                                <option>New</option>
+                                                <option>Used</option>
+                                                <option>Mint</option>
+                                            </select>
+                                        </div>
+                                        <div class="top">
+                                            <span>Category</span>
+                                            <select name="category" id="category">
+                                            <?php
+                                                include 'connection/connection.php';
+                                                connectdb();
+                                                $sql="SELECT category_name from Category;";
+                                                $res=query($sql);
+                                                while($row=$res->fetch_assoc())
+                                                {
+                                                    echo "<option>".$row['category_name']."</option>";
+                                                }
+
+                                            ?>
+                                            </select>
+                                        </div>
+                                        <div class="top">
+                                            <span>Type</span>
+                                            <select name="type" id="type">
+                                            <?php
+                                                $sql="SELECT type_name from ItemType;";
+                                                $res=query($sql);
+                                                while($row=$res->fetch_assoc())
+                                                {
+                                                    echo "<option>".$row['type_name']."</option>";
+                                                }
+                                            ?>
+                                            </select>
+                                        </div>
+                                        <div class="top">
+                                            <span>Available for:</span>
+                                            <select name="availability" id="availability">
+                                                <option>Rent</option>
+                                                <option>Sell</option>
+                                                <option>Exchange</option>
+                                            </select>
+                                        </div>
+                                        <div class="clear"> </div>
+                                </div>
+                                <div class="clear"> </div>
+                                <input type="submit" value="submit">
+                        </form>
+                    </div>
+           </div>
+      </div>
 
 <?
     include 'footer.php';
