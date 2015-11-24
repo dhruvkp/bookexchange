@@ -27,8 +27,6 @@
         $row=$res->fetch_assoc();
         $type_id=$row['type_id'];
         $sql= "Insert into Item(user_id,category_id,type_id,title,author,price,description,post_date,post_status,item_condition,availability_type) values (".$userid.",".$category_id.",".$type_id.",'".$title."','".$author."',".$price.",'".$desc."','".$date['year']."-".$date['mon']."-".$date[mday]."','under_review','".$condition."','".$availability."');";
-        echo $sql;
-
         query($sql);
         header("Location: user_profile.php");
     }
