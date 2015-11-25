@@ -12,7 +12,7 @@ session_start();
     <div class="main">
       <div class="shop_top">
          <div class="container">
-                        <form action="postbook_event.php" id="register_form" method="POST">
+                        <form enctype="multipart/form-data" action="postbook_event.php" id="register_form" method="POST">
                                 <div class="register-top-grid">
                                         <h3>ITEM INFORMATION</h3>
                                         <div class="top">
@@ -75,6 +75,10 @@ session_start();
                                                 <option>Sell</option>
                                                 <option>Exchange</option>
                                             </select>
+                                        </div>
+                                        <div class="top">
+                                            <span>Image<label>*</label></span>
+                                            <input name="image" type="file" accept="image/*">
                                         </div>
                                         <div class="clear"> </div>
                                 </div>

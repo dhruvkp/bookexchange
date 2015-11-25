@@ -63,9 +63,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                      <div class="menu">
                           <a class="toggleMenu" href="#"><img src="images/nav.png" alt="" /></a>
                             <ul class="nav" id="nav">
-                                <li><a href="shop.php">Shop</a></li>
-                                <li><a href="login.php">Login</a></li>
-                                <div class="clear"></div>
+                              <li><a href="shop.php">Shop</a></li>
+                              <?php
+                                session_start();
+                                if(!isset($_SESSION['userid']))
+                                {
+                                  echo '<li><a href="login.php">Login</a></li>';
+                                }
+                                else
+                                {
+                                  echo '<li><a href="user_profile.php">Profile</a></li>';
+                                  echo '<li><a href="listbooks.php">My Items</a></li>';
+                                  echo '<li><a href="postbook.php">Post Item</a></li>';
+                                  echo '<li><a href="logout.php">Log out</a></li>';
+                                }
+                              ?>
+                              <div class="clear"></div>
                             </ul>
                             <script type="text/javascript" src="js/responsive-nav.js"></script>
                     </div>
