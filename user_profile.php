@@ -110,6 +110,7 @@ session_start();
 
 <link rel="Stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" />
 
+
 <script type="text/javascript">
     $("#pwd").dialog({autoOpen:false,
     				        maxWidth:800,
