@@ -90,32 +90,34 @@ session_start();
       <div id="pwd" style=" background-color: black;opacity:0.9; color:white">
 			   <form enctype="multipart/form-data" action="pwdchange_event.php" id="register_form" method="POST">
                         
-			   <div class=" row"><div class="col-sm-offset-2" style="margin-top:25px;">
+			   <div class=" row"><div class="col-sm-offset-2" style="margin-top:25px; padding:10px">
      				 	<div class="row">
 	     				 	 <div class="col-md-3"><span>Old Password</span></div>
 			                 <div class="col-md-2"><input name="old" type="text"></div>
-	                     </div>
+	                     </div><br />
                          <div class="row">
 	                     	 <div class="col-md-3"><span>New Password</span></div>
 	                         <div class="col-md-2"><input name="new" type="text"></div>
-	                     </div>
+	                     </div><br />
                          <div class="row">
 	                        <div class="col-md-3"><span>Retype New Password</span></div>
 	                        <div class="col-md-2"><input name="retype" type="text"></div>
-	                     </div>
-                          <input type="submit" class="btn btn-default" style="margin-top:5px" value="Submit"> </div>
+	                     </div><br />
+                          <input type="submit" class="btn btn-default" value="Submit"> </div>
                      </div>           					   		
       		  </form>
       	 </div>
 
+<link rel="Stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" />
+
 <script type="text/javascript">
     $("#pwd").dialog({autoOpen:false,
-    				maxWidth:550,
-                    maxHeight: 230,
-                    width: 550,
-                    height: 230,
+    				        maxWidth:800,
+                    maxHeight: 330,
+                    width: 800,
+                    height: 330,
                     modal: true,
-
+                    title:"change Password",
                     
        });
    function openPopup()
