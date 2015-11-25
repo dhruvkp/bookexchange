@@ -80,11 +80,50 @@ session_start();
                                         <div class="clear"> </div>
                                 </div>
                                 <div class="clear"> </div>
-                                <input type="submit" value="Edit Profile"> &nbsp; &nbsp;<input type="submit" value="Edit Password">
+                                
+                                <input type="submit" value="Edit Profile"> &nbsp; &nbsp;<input onclick="openPopup()" type="submit" value="Edit Password">
                        
                     </div>
            </div>
       </div>
+
+      <div id="pwd" style=" background-color: black;opacity:0.9; color:white">
+			   <form enctype="multipart/form-data" action="pwdchange_event.php" id="register_form" method="POST">
+                        
+			   <div class=" row"><div class="col-sm-offset-2" style="margin-top:25px;">
+     				 	<div class="row">
+	     				 	 <div class="col-md-3"><span>Old Password</span></div>
+			                 <div class="col-md-2"><input name="old" type="text"></div>
+	                     </div>
+                         <div class="row">
+	                     	 <div class="col-md-3"><span>New Password</span></div>
+	                         <div class="col-md-2"><input name="new" type="text"></div>
+	                     </div>
+                         <div class="row">
+	                        <div class="col-md-3"><span>Retype New Password</span></div>
+	                        <div class="col-md-2"><input name="retype" type="text"></div>
+	                     </div>
+                          <input type="submit" class="btn btn-default" style="margin-top:5px" value="Submit"> </div>
+                     </div>           					   		
+      		  </form>
+      	 </div>
+
+<script type="text/javascript">
+    $("#pwd").dialog({autoOpen:false,
+    				maxWidth:550,
+                    maxHeight: 230,
+                    width: 550,
+                    height: 230,
+                    modal: true,
+
+                    
+       });
+   function openPopup()
+    {
+                 $("#pwd").dialog("open");
+            }
+    
+</script>
 <!-- 
   <div class="row">
        	<div class="col-md-offset-2 col-md-8 well">
