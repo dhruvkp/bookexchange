@@ -5,7 +5,7 @@
     include 'connection.php';
     connectdb();
 	
-	$sql = "select user_id,type_id, category_id, title, author, description, item_condition, availability_type from item where post_status ='available';";
+	$sql = "select user_id,type_id, category_id, title, author, description, item_condition, availability_type from item where post_status ='unavailable';";
 	
 	$itemsr_list = array();
 	$result = query($sql);

@@ -4,7 +4,7 @@
 
     include 'connection.php';
     connectdb();
-	$sql = "select firstname, lastname, email, username, dob  from User where status = 'active';";
+	$sql = "select firstname, lastname, email, username, dob , status from User;";
 	$user_list = array();
 	$result = query($sql);
 	
@@ -49,13 +49,14 @@
 					<th class="table-header-repeat line-left"><a href="">Email</a></th>
 					<th class="table-header-repeat line-left"><a href="">UserName</a></th>
 					<th class="table-header-repeat line-left"><a href="">DateOfBirth</a></th>
+					<th class="table-header-repeat line-left"><a href="">Status</a></th>
 					<th class="table-header-options line-left"><a href="">Options</a></th>
 					
 				</tr>
 				<?php
 				if($result->num_rows != 0){
 				while($row = $result->fetch_assoc()) {
-						array_push($user_list,array('firstname'=>$row['firstname'],'lastname'=>$row['lastname'],'email'=>$row['email'],'username'=>$row['dob'],'dob'=>$row['dob']));
+						array_push($user_list,array('firstname'=>$row['firstname'],'lastname'=>$row['lastname'],'email'=>$row['email'],'username'=>$row['dob'],'dob'=>$row['dob'],'status'=>$row['status']));
        
    
 					echo "<tr>";
@@ -65,6 +66,7 @@
 					echo"<td>".$row['email']."</td>";
 					echo"<td>".$row['username']."</td>";
 					echo"<td>".$row['dob']."</td>";
+					echo"<td>".$row['status']."</td>";
 					echo"<td class='options-width'>";
 					echo"<a href='' title='Edit' class='icon-2 info-tooltip'></a>";
 					echo"<a href='' title='Edit' class='icon-5 info-tooltip'></a>";

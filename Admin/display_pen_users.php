@@ -4,7 +4,7 @@
 
     include 'connection.php';
     connectdb();
-	$sql = "select firstname, lastname, email, username, dob  from User where status = 'active';";
+	$sql = "select firstname, lastname, email, username, dob  from User where status = 'under_review';";
 	$user_list = array();
 	$result = query($sql);
 	

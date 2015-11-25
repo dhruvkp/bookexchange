@@ -226,7 +226,7 @@ $(document).pngFix( );
 			<ul class="sub">
 				<li><a href="display_reg_users.php">Display Registered Users</a></li>
 				<li><a href="display_reg_items.php">Display Registered Items</a></li>
-				<li><a href="#nogo">Display Pending Items</a></li>
+				<li><a href="display_pen_items.php">Display Pending Items</a></li>
 			</ul>
 		</div>
 		<!--[if lte IE 6]></td></tr></table></a><![endif]-->
@@ -239,9 +239,9 @@ $(document).pngFix( );
 		<!--[if lte IE 6]><table><tr><td><![endif]-->
 		<div class="select_sub show">
 			<ul class="sub">
-				<li><a href="#nogo">Pending Users</a></li>
+				<li><a href="display_pen_users.php">Pending Users</a></li>
 				<li class="sub_show"><a href="display_reg_users.php">Authorized Users</a></li>
-				<li><a href="#nogo">List of All Users</a></li>
+				<li><a href="display_all_users.php">List of All Users</a></li>
 			</ul>
 		</div>
 		<!--[if lte IE 6]></td></tr></table></a><![endif]-->
@@ -254,10 +254,10 @@ $(document).pngFix( );
 		<!--[if lte IE 6]><table><tr><td><![endif]-->
 		<div class="select_sub">
 			<ul class="sub">
-				<li><a href="#nogo">Pending Items</a></li>
-				<li><a href="#nogo">List of available Items</a></li>
-				<li><a href="#nogo">List of unavailable Items</a></li>
-				<li><a href="#nogo">List of All Items</a></li>
+				<li><a href="display_pen_items.php">Pending Items</a></li>
+				<li><a href="display_reg_items.php">List of available Items</a></li>
+				<li><a href="display_un_items.php">List of unavailable Items</a></li>
+				<li><a href="display_all_items.php">List of All Items</a></li>
 				
 			</ul>
 		</div>

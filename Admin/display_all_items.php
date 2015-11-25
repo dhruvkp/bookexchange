@@ -5,7 +5,7 @@
     include 'connection.php';
     connectdb();
 	
-	$sql = "select user_id,type_id, category_id, title, author, description, item_condition, availability_type from item where post_status ='available';";
+	$sql = "select user_id,type_id, category_id, title, author, description, item_condition, availability_type,post_status from item;";
 	
 	$itemsr_list = array();
 	$result = query($sql);
@@ -52,14 +52,14 @@
 					<th class="table-header-repeat line-left"><a href="">Title</a></th>
 					<th class="table-header-repeat line-left"><a href="">Author</a></th>
 					<th class="table-header-options line-left"><a href="">Descrption</a></th>
-					<th class="table-header-options line-left"><a href="">Item Condition</a></th>
 					<th class="table-header-options line-left"><a href="">Availability</a></th>
+					<th class="table-header-options line-left"><a href="">Status</a></th>
 					
 				</tr>
 				<?php if($result->num_rows != 0){
 				while($row = $result->fetch_assoc()) {
 						
-						array_push($itemsr_list,array('user_id'=>$row['user_id'],'type_id'=>$row['type_id'],'category_id'=>$row['category_id'],'title'=>$row['title'],'author'=>$row['author'],'description'=>$row['description'],'item_condition'=>$row['item_condition'],'availability_type'=>$row['availability_type']));
+						array_push($itemsr_list,array('user_id'=>$row['user_id'],'type_id'=>$row['type_id'],'category_id'=>$row['category_id'],'title'=>$row['title'],'author'=>$row['author'],'description'=>$row['description'],'item_condition'=>$row['item_condition'],'availability_type'=>$row['availability_type'],'status'=>$row['post_status']));
 						
 						$sql1 = "select username from user where user_id ='".$row['user_id']."';";
 						$sql2 = "select type_name from itemtype where type_id ='".$row['type_id']."';";
@@ -90,8 +90,9 @@
 					echo"<td>".$row['title']."</td>";
 					echo"<td>".$row['author']."</td>";
 					echo"<td>".$row['description']."</td>";
-					echo"<td>".$row['item_condition']."</td>";
 					echo"<td>".$row['availability_type']."</td>";
+					echo"<td>".$row['post_status']."</td>";
+					
 					
 					echo "</tr>";
 					
