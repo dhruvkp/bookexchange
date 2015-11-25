@@ -17,48 +17,47 @@ session_start();
     }
 
 ?>
-<div id="wrapper">
-<div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Hello , <?php echo $fname; ?>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">Dashboard</a>
-                </li>
-                <li>
-                    <a href="#">Post your book</a>
-                </li>
-                <li>
-                    <a href="#">Registered book</a>
-                </li>
-                <li>
-                    <a href="#">My accounts</a>
-                </li>
-
-            </ul>
-        </div>
-
-<div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="row">
+           <div class="col-md-offset-2 col-md-8" style="margin-top:15px">
+           <h3 class="box_title" align="center"> About me </h3> <hr style="margin-top:5px;margin-bottom:5px">
+        
+           </div>
+       </div>
 
 
-</div>
-        <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
+  <div class="row">
+       	<div class="col-md-offset-2 col-md-8 well">
+           
+          <div class="col-md-offset-1 col-md-5">
+           <br><b> Name: </b> Heet Vachhani  <br> 
+          </div>
+          <div class="col-md-offset-1 col-md-5">
+           <br><b> Email: </b> 26vachhani@gmail.com <br> 
+          </div>
+         
+         <div class="col-md-offset-1 col-md-5">
+           <br><b> City: </b>   <br> 
+          </div>
+
+          <div class="col-md-offset-1 col-md-5">
+           <br><b> College: </b> <br> 
+          </div> 
+          
+          <div class="col-md-offset-1 col-md-5">
+          <br><b>Address: </b> <br> 
+          </div>   
+
+          <div class="col-md-offset-1 col-md-5">
+           <br><b>Phone: </b> <br> 
+          </div>       
+          <div class="col-md-offset-1 col-md-5">
+           <br><b>Occupation: </b>  <br> 
+          </div> 
+          
+          </div>
+
+  </div>
+
 <?php
 include 'footer.php';
 ?>
