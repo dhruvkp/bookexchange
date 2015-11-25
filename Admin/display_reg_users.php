@@ -67,7 +67,7 @@
 					echo"<td>".$row['dob']."</td>";
 					echo"<td class='options-width'>";
 					echo"<a href='' title='Edit' class='icon-2 info-tooltip'></a>";
-					echo"<a href='' title='Edit' class='icon-5 info-tooltip'></a>";
+					
 					
 					echo"</td>";
 					echo "</tr>";

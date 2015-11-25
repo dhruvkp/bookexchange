@@ -50,7 +50,7 @@
 					<th class="table-header-repeat line-left"><a href="">UserName</a></th>
 					<th class="table-header-repeat line-left"><a href="">DateOfBirth</a></th>
 					<th class="table-header-repeat line-left"><a href="">Status</a></th>
-					<th class="table-header-options line-left"><a href="">Options</a></th>
+					
 					
 				</tr>
 				<?php
@@ -67,11 +67,6 @@
 					echo"<td>".$row['username']."</td>";
 					echo"<td>".$row['dob']."</td>";
 					echo"<td>".$row['status']."</td>";
-					echo"<td class='options-width'>";
-					echo"<a href='' title='Edit' class='icon-2 info-tooltip'></a>";
-					echo"<a href='' title='Edit' class='icon-5 info-tooltip'></a>";
-					
-					echo"</td>";
 					echo "</tr>";
 					
 					

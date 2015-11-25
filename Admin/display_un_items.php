@@ -52,8 +52,8 @@
 					<th class="table-header-repeat line-left"><a href="">Title</a></th>
 					<th class="table-header-repeat line-left"><a href="">Author</a></th>
 					<th class="table-header-options line-left"><a href="">Descrption</a></th>
-					<th class="table-header-options line-left"><a href="">Item Condition</a></th>
-					<th class="table-header-options line-left"><a href="">Availability</a></th>
+					
+					<th class="table-header-options line-left"><a href="">Options</a></th>
 					
 				</tr>
 				<?php if($result->num_rows != 0){
@@ -90,8 +90,12 @@
 					echo"<td>".$row['title']."</td>";
 					echo"<td>".$row['author']."</td>";
 					echo"<td>".$row['description']."</td>";
-					echo"<td>".$row['item_condition']."</td>";
-					echo"<td>".$row['availability_type']."</td>";
+					
+					echo"<td>";
+					echo"<a href='' title='Edit' class='icon-2 info-tooltip'></a>";
+					echo"<a href='' title='Edit' class='icon-5 info-tooltip'></a>";
+					
+					echo"</td>";
 					
 					echo "</tr>";
 					
