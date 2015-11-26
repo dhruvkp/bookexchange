@@ -78,7 +78,7 @@ session_start();
                                         </div>
                                         <div class="top">
                                             <span>Image<label>*</label></span>
-                                            <input name="image" type="file" accept="image/*">
+                                            <input name="image" type="file" accept="image/jpeg">
                                         </div>
                                         <div class="clear"> </div>
                                 </div>

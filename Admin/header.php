@@ -34,7 +34,7 @@ border:1px solid #d7dada; -webkit-border-radius: 3px; -moz-border-radius: 3px;bo
 
 <!--  jquery core -->
 <script src="js/jquery/jquery-1.4.1.min.js" type="text/javascript"></script>
- 
+
 <!--  checkbox styling script -->
 <script src="js/jquery/ui.core.js" type="text/javascript"></script>
 <script src="js/jquery/ui.checkbox.js" type="text/javascript"></script>
@@ -48,7 +48,7 @@ $(function(){
 	return false;
 	});
 });
-</script>  
+</script>
 
 
 <![if !IE 7]>
@@ -60,12 +60,12 @@ $(document).ready(function() {
 	$('.styledselect').selectbox({ inputClass: "selectbox_styled" });
 });
 </script>
- 
+
 
 <![endif]>
 
 
-<!--  styled select box script version 2 --> 
+<!--  styled select box script version 2 -->
 <script src="js/jquery/jquery.selectbox-0.5_style_2.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function() {
@@ -74,7 +74,7 @@ $(document).ready(function() {
 });
 </script>
 
-<!--  styled select box script version 3 --> 
+<!--  styled select box script version 3 -->
 <script src="js/jquery/jquery.selectbox-0.5_style_2.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function() {
@@ -82,11 +82,11 @@ $(document).ready(function() {
 });
 </script>
 
-<!--  styled file upload script --> 
+<!--  styled file upload script -->
 <script src="js/jquery/jquery.filestyle.js" type="text/javascript"></script>
 <script type="text/javascript" charset="utf-8">
 $(function() {
-	$("input.file_1").filestyle({ 
+	$("input.file_1").filestyle({
 	image: "images/forms/upload_file.gif",
 	imageheight : 29,
 	imagewidth : 78,
@@ -97,7 +97,7 @@ $(function() {
 
 <!-- Custom jquery scripts -->
 <script src="js/jquery/custom_jquery.js" type="text/javascript"></script>
- 
+
 <!-- Tooltips -->
 <script src="js/jquery/jquery.tooltip.js" type="text/javascript"></script>
 <script src="js/jquery/jquery.dimensions.js" type="text/javascript"></script>
@@ -106,14 +106,14 @@ $(function() {
 	$('a.info-tooltip ').tooltip({
 		track: true,
 		delay: 0,
-		fixPNG: true, 
+		fixPNG: true,
 		showURL: false,
 		showBody: " - ",
 		top: -35,
 		left: 5
 	});
 });
-</script> 
+</script>
 
 <!--  date picker script -->
 <link rel="stylesheet" href="css/datePicker.css" type="text/css" />
@@ -155,7 +155,7 @@ $('#date-pick')
 			updateSelects(selected[0]);
 		}
 	);
-	
+
 var updateSelects = function (selectedDate)
 {
 	var selectedDate = new Date(selectedDate);
@@ -195,21 +195,21 @@ $(document).pngFix( );
 });
 </script>
 </head>
-<body> 
+<body>
 <!-- Start: page-top-outer -->
-<div id="page-top-outer">    
+<div id="page-top-outer">
 
 <!-- Start: page-top -->
 <div id="page-top">
 
 	<!-- start logo -->
 	<div id="logo">
-	
+
 	</div>
 	<!-- end logo -->
-	
-	
-	
+
+
+
  	<div class="clear"></div>
 
 </div>
@@ -217,25 +217,25 @@ $(document).pngFix( );
 
 </div>
 <!-- End: page-top-outer -->
-	
+
 <div class="clear">&nbsp;</div>
- 
+
 <!--  start nav-outer-repeat................................................................................................. START -->
-<div class="nav-outer-repeat"> 
+<div class="nav-outer-repeat">
 <!--  start nav-outer -->
-<div class="nav-outer"> 
+<div class="nav-outer">
 
 		<!-- start nav-right -->
 		<div id="nav-right">
-		
-			
-			
+
+
+
 			<div class="nav-divider">&nbsp;</div>
-			<a href="/bookexchange/login.php" id="logout"><img src="images/shared/nav/nav_logout.gif" width="64" height="14" alt="" /></a>
+			<a href="/bookexchange/logout.php" id="logout"><img src="images/shared/nav/nav_logout.gif" width="64" height="14" alt="" /></a>
 			<div class="clear">&nbsp;</div>
-		
-			
-		
+
+
+
 		</div>
 		<!-- end nav-right -->
 
@@ -243,7 +243,7 @@ $(document).pngFix( );
 		<!--  start nav -->
 		<div class="nav">
 		<div class="table">
-		
+
 		<ul class="select"><li><a href="#nogo"><b>List Details</b><!--[if IE 7]><!--></a><!--<![endif]-->
 		<!--[if lte IE 6]><table><tr><td><![endif]-->
 		<div class="select_sub">
@@ -256,9 +256,9 @@ $(document).pngFix( );
 		<!--[if lte IE 6]></td></tr></table></a><![endif]-->
 		</li>
 		</ul>
-		
+
 		<div class="nav-divider">&nbsp;</div>
-		                    
+
 		<ul class="current"><li><a href="#nogo"><b>Users</b><!--[if IE 7]><!--></a><!--<![endif]-->
 		<!--[if lte IE 6]><table><tr><td><![endif]-->
 		<div class="select_sub show">
@@ -271,9 +271,9 @@ $(document).pngFix( );
 		<!--[if lte IE 6]></td></tr></table></a><![endif]-->
 		</li>
 		</ul>
-		
+
 		<div class="nav-divider">&nbsp;</div>
-		
+
 		<ul class="select"><li><a href="#nogo"><b>Items</b><!--[if IE 7]><!--></a><!--<![endif]-->
 		<!--[if lte IE 6]><table><tr><td><![endif]-->
 		<div class="select_sub">
@@ -282,14 +282,14 @@ $(document).pngFix( );
 				<li><a href="display_reg_items.php">List of available Items</a></li>
 				<li><a href="display_un_items.php">List of unavailable Items</a></li>
 				<li><a href="display_all_items.php">List of All Items</a></li>
-				
+
 			</ul>
 		</div>
 		<!--[if lte IE 6]></td></tr></table></a><![endif]-->
 		</li>
 		</ul>
-		
-				
+
+
 		<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
@@ -301,11 +301,11 @@ $(document).pngFix( );
 <!--  start nav-outer -->
 </div>
 <!--  start nav-outer-repeat................................................... END -->
- 
- <div class="clear"></div>
- 
 
- 
+ <div class="clear"></div>
+
+
+
 
 <div class="clear">&nbsp;</div>
-    
+

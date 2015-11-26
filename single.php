@@ -7,72 +7,48 @@
 			<div class="row">
 				<div class="col-md-9 single_left">
 				   <div class="single_image">
-					     <ul id="etalage">
-							<li>
-								<a href="optionallink.php">
-									<img class="etalage_thumb_image" src="images/3.jpg" />
-									<img class="etalage_source_image" src="images/3.jpg" />
-								</a>
-							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/4.jpg" />
-								<img class="etalage_source_image" src="images/4.jpg" />
-							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/5.jpg" />
-								<img class="etalage_source_image" src="images/5.jpg" />
-							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/6.jpg" />
-								<img class="etalage_source_image" src="images/6.jpg" />
-							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/7.jpg" />
-								<img class="etalage_source_image" src="images/7.jpg" />
-							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/8.jpg" />
-								<img class="etalage_source_image" src="images/8.jpg" />
-							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/9.jpg" />
-								<img class="etalage_source_image" src="images/9.jpg" />
-							</li>
-						</ul>
-					    </div>
+					<?php
+						include 'connection/connection.php';
+						connectdb();
+						$sql="select * from Item where item_id=".$_GET['id'];
+						$res=query($sql);
+						$row=$res->fetch_assoc();
+						echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'" alt=""/>';
+					?>
+					</div>
 				        <!-- end product_slider -->
 				        <div class="single_right">
-				        	<h3>hendrerit in vulputate velit </h3>
-				        	<p class="m_10">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse</p>
+				        	<h3><?=$row['title'];?></h3>
+				        	<p class="m_10"><?=$row['author'];?></p>
 				        	<ul class="options">
-								<h4 class="m_12">Select a Size(cm)</h4>
-								<li><a href="#">151</a></li>
-								<li><a href="#">148</a></li>
-								<li><a href="#">156</a></li>
-								<li><a href="#">145</a></li>
-								<li><a href="#">162(w)</a></li>
-								<li><a href="#">163</a></li>
+								<h4 class="m_12">Item Condition</h4>
+								<li><a href="#"><?=$row['item_condition'];?></a></li>
 							</ul>
-				        	<ul class="product-colors">
-								<h3>available Colors</h3>
-								<li><a class="color1" href="#"><span> </span></a></li>
-								<li><a class="color2" href="#"><span> </span></a></li>
-								<li><a class="color3" href="#"><span> </span></a></li>
-								<li><a class="color4" href="#"><span> </span></a></li>
-								<li><a class="color5" href="#"><span> </span></a></li>
-								<li><a class="color6" href="#"><span> </span></a></li>
+				        	<ul class="options">
+								<h4 class="m_12">Available for</h4>
+								<li><a href="#"><?=$row['availability_type'];?></a></li>
 								<div class="clear"> </div>
 							</ul>
-							<div class="btn_form">
+							<ul class="options">
+								<h4 class="m_12">Category</h4>
+								<li><a href="#"><?php
+									$category_id=$row['category_id'];
+									$sql="select category_name from Category where category_id=".$category_id;
+									$res=query($sql);
+									$row2=$res->fetch_assoc();
+									echo $row2['category_name'];
+								?></a></li>
+								<div class="clear"> </div>
+							</ul>
+							<!-- <div class="btn_form">
 							   <form>
 								 <input type="submit" value="buy now" title="">
 							  </form>
-							</div>
+							</div> -->
 							<ul class="add-to-links">
-    			              <li><img src="images/wish.png" alt=""><a href="#">Add to wishlist</a></li>
+    			              <li id="wishlist"><img src="images/wish.png" alt=""><a href="#">Add to wishlist</a></li>
     			            </ul>
 							<div class="social_buttons">
-								<h4>95 Items</h4>
 								<button type="button" class="btn1 btn1-default1 btn1-twitter" onclick="">
 					              <i class="icon-twitter"></i> Tweet
 					            </button>
@@ -91,73 +67,63 @@
 				</div>
 				<div class="col-md-3">
 				  <div class="box-info-product">
-					<p class="price2">$130.25</p>
-					       <ul class="prosuct-qty">
-								<span>Quantity:</span>
-								<select>
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-									<option>6</option>
-								</select>
-							</ul>
-							<button type="submit" name="Submit" class="exclusive">
-							   <span>Add to cart</span>
-							</button>
+					<p class="price2">$<?=$row['price'];?></p>
+					<ul class="add-to-links">
+    			              <li><img src="images/wish.png" alt=""><a href="#">Add to wishlist</a></li>
+    			            </ul>
 				   </div>
 			   </div>
 			</div>
 			<div class="desc">
 			   	<h4>Description</h4>
-			   	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores</p>
+			   	<p><?=$row['description'];?></p>
 			</div>
-			<div class="row">
-				<h4 class="m_11">Related Products in the same Category</h4>
-				<div class="col-md-4 product1">
-					<img src="images/s1.jpg" class="img-responsive" alt=""/>
-					<div class="shop_desc"><a href="single.php">
-						</a><h3><a href="single.php"></a><a href="#">aliquam volutp</a></h3>
-						<p>Lorem ipsum consectetuer adipiscing </p>
-						<span class="reducedfrom">$66.00</span>
-						<span class="actual">$12.00</span><br>
-						<ul class="buttons">
-							<li class="cart"><a href="#">Add To Cart</a></li>
-							<li class="shop_btn"><a href="#">Read More</a></li>
-							<div class="clear"> </div>
-					    </ul>
-				    </div>
-				</div>
-				<div class="col-md-4 product1">
-					<img src="images/s2.jpg" class="img-responsive" alt=""/>
-					<div class="shop_desc"><a href="single.php">
-						</a><h3><a href="single.php"></a><a href="#">aliquam volutp</a></h3>
-						<p>Lorem ipsum consectetuer adipiscing </p>
-						<span class="reducedfrom">$66.00</span>
-						<span class="actual">$12.00</span><br>
-						<ul class="buttons">
-							<li class="cart"><a href="#">Add To Cart</a></li>
-							<li class="shop_btn"><a href="#">Read More</a></li>
-							<div class="clear"> </div>
-					    </ul>
-				    </div>
-				</div>
-				<div class="col-md-4">
-					<img src="images/s3.jpg" class="img-responsive" alt=""/>
-					<div class="shop_desc"><a href="single.php">
-						</a><h3><a href="single.php"></a><a href="#">aliquam volutp</a></h3>
-						<p>Lorem ipsum consectetuer adipiscing </p>
-						<span class="reducedfrom">$66.00</span>
-						<span class="actual">$12.00</span><br>
-						<ul class="buttons">
-							<li class="cart"><a href="#">Add To Cart</a></li>
-							<li class="shop_btn"><a href="#">Read More</a></li>
-							<div class="clear"> </div>
-					    </ul>
-				    </div>
-				</div>
+			<div class="desc">
+			   	<h4>Contact</h4>
+			   	<ul class="options">
+								<?php
+									$sql="select firstname,lastname, contact_no,address1,address2,User.zipcode,city_name,state_name from User, Zipcode,City,State where User.zipcode=Zipcode.zipcode and Zipcode.city_id=City.city_id and City.state_id=State.state_id and user_id=".$row['user_id'];
+									$res=query($sql);
+									$row2=$res->fetch_assoc();
+									echo '<li><h5>'.$row2['firstname'].' '.$row2['lastname'].'</h5></li><br/>';
+									echo '<li><p>Contact: '.$row2['contact_no'].'</p></li><br/>';
+									echo '<li>Address: '.$row2['address1'].', '.$row2['address2'].', '.$row2['city_name'].', '.$row2['state_name'].' '.$row2['zipcode'].'</li>';
+								?>
+								<div class="clear"> </div>
+							</ul>
 			</div>
+			<?php
+					$sql="select * from Item where category_id=".$row['category_id'];
+					$res=query($sql);
+					if($res->num_rows>0)
+					{
+						echo '<div class="row">
+				<h4 class="m_11">Related Products in the same Category</h4>';
+						$cnt=0;
+						while($row2=$res->fetch_assoc())
+						{
+							if($row2['item_id']==$row['item_id'])
+								continue;
+							if($cnt>2)
+								break;
+							echo '<div class="col-md-4 product1">
+					<img src="data:image/jpeg;base64,'.base64_encode( $row2['image'] ).'" alt=""/>
+					<div class="shop_desc"><a href="single.php?id='.$row2['item_id'].'">
+						</a><h3><a href="single.php?id='.$row2['item_id'].'"></a><a href="#">'.$row2['title'].'</a></h3>
+						<p>'.$row2['author'].'</p>
+						<span class="actual">$'.$row2['price'].'</span><br>
+						<ul class="add-to-links">
+							<li id="wishlist"><img src="images/wish.png" alt=""><a href="#">Add To Wishlist</a></li>
+							<div class="clear"> </div>
+					    </ul>
+				    </div>
+				</div>';
+							$cnt+=1;
+						}
+
+					}
+
+			?>
 	     </div>
 	   </div>
 	  </div>

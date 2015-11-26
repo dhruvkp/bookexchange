@@ -1021,6 +1021,34 @@ li.youtube a span {
 	top: 0px;
 	z-index: 1;
 }
+.mint-label {
+    font-size: 0.85em;
+    color: #FFF;
+    background:#009900;
+    text-transform: uppercase;
+    padding:9px;
+    text-align: center;
+    display: block;
+    min-width: 70px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+}
+.used-label {
+    font-size: 0.85em;
+    color: #FFF;
+    background:#CC6600;
+    text-transform: uppercase;
+    padding:9px;
+    text-align: center;
+    display: block;
+    min-width: 70px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+}
 .sale-box {
 	left:10px;
 }

@@ -1,7 +1,11 @@
 <?php
-	include 'header.php';
-?>
-     <div class="main">
+session_start();
+    if(isset($_SESSION['userid']))
+   {
+    header("location:user_profile.php");
+   }
+   include 'header.php';
+?>     <div class="main">
       <div class="shop_top">
 		<div class="container">
 			<div class="col-md-6">
