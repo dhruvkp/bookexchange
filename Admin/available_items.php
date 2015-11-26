@@ -13,12 +13,12 @@
     $item_id=$_POST['item_id'];
 	$url=$_POST['url'];
     
-    $sql="delete from item where item_id='".$item_id."';";
+    $sql="update item SET post_status = 'available' where item_id='".$item_id."';";
     $result = query($sql);
 	header('Location:'.$url);
+
     }
 
-	
 	
 	
     

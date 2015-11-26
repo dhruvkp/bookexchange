@@ -1,5 +1,13 @@
 <?php 
-	include 'header.php';
+	
+	session_start();
+    if(!isset($_SESSION['userid']))
+   {
+    header("location:/bookexchange/login.php");
+   }
+   else
+   {
+    include 'header.php';
 
 
     include 'connection.php';
@@ -9,6 +17,12 @@
 	
 	$itemsr_list = array();
 	$result = query($sql);
+
+    }
+
+	
+	
+	
 	
 ?>
 <div class="clear"></div>

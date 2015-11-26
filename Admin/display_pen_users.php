@@ -1,12 +1,25 @@
 <?php 
-	include 'header.php';
+	
+	session_start();
+    if(!isset($_SESSION['userid']))
+   {
+    header("location:/bookexchange/login.php");
+   }
+   else
+   {
+    include 'header.php';
 
 
     include 'connection.php';
     connectdb();
-	$sql = "select firstname, lastname, email, username, dob  from User where status = 'under_review';";
+	$sql = "select user_id,firstname, lastname, email, username, dob  from User where status = 'under_review';";
 	$user_list = array();
 	$result = query($sql);
+
+    }
+
+	
+	
 	
 ?>
 <div class="clear"></div>
@@ -40,7 +53,7 @@
 			<!--  start table-content  -->
 			<div id="table-content">
 			
-				
+				<form name='f1' method='post' >
 				<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
 				<tr>
 					
@@ -55,7 +68,7 @@
 				<?php
 				if($result->num_rows != 0){
 				while($row = $result->fetch_assoc()) {
-						array_push($user_list,array('firstname'=>$row['firstname'],'lastname'=>$row['lastname'],'email'=>$row['email'],'username'=>$row['dob'],'dob'=>$row['dob']));
+						array_push($user_list,array('user_id'=>$row['user_id'],'firstname'=>$row['firstname'],'lastname'=>$row['lastname'],'email'=>$row['email'],'username'=>$row['dob'],'dob'=>$row['dob']));
        
    
 					echo "<tr>";
@@ -65,9 +78,13 @@
 					echo"<td>".$row['email']."</td>";
 					echo"<td>".$row['username']."</td>";
 					echo"<td>".$row['dob']."</td>";
-					echo"<td class='options-width'>";
-					echo"<a href='' title='Edit' class='icon-2 info-tooltip'></a>";
-					echo"<a href='' title='Edit' class='icon-5 info-tooltip'></a>";
+					echo"<td>";
+					
+					echo"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type = 'button' name = 'remove' value = 'x' onClick = 'redirect(".$row['user_id'].")' class='button_example'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+					
+					echo"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type = 'button' name = 'remove' value = '✓' onClick = 'redirect2(".$row['user_id'].")' class='button_example'>";
+					//echo"<a href='' onClick = 'redirect(".$row['item_id'].")' title='Edit' class='icon-2 info-tooltip'></a>";
+					
 					
 					echo"</td>";
 					echo "</tr>";
@@ -82,7 +99,9 @@
 				}?>
 				
 				</table>
-			
+			<input type='hidden' value='' name = 'user_id' id = 'user_id'/>
+			<input type='hidden' value='display_pen_users.php' name = 'url' id = 'url'/>
+			</form>
 			
 			</div>
 			<!--  end content-table  -->
@@ -110,6 +129,26 @@
 <!--  end content-outer........................................................END -->
 
 <div class="clear">&nbsp;</div>
+
+<script>
+function redirect(user_id){
+		alert("Here is the user _ id: "+user_id);
+		if(confirm("Are you Sure?")){
+			document.f1.user_id.value=user_id;
+			document.f1.action = 'remove_users.php';
+			f1.submit();
+		}
+	}
+	
+function redirect2(user_id){
+		alert("Here is the user _ id: "+user_id);
+		if(confirm("Are you Sure?")){
+			document.f1.user_id.value=user_id;
+			document.f1.action = 'approve_users.php';
+			f1.submit();
+		}
+	}
+		</script>	
 			
 <?php
 include 'footer.php';

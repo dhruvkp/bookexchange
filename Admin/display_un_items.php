@@ -1,5 +1,13 @@
 <?php 
-	include 'header.php';
+	
+	session_start();
+    if(!isset($_SESSION['userid']))
+   {
+    header("location:/bookexchange/login.php");
+   }
+   else
+   {
+    include 'header.php';
 
 
     include 'connection.php';
@@ -9,6 +17,12 @@
 	
 	$itemsr_list = array();
 	$result = query($sql);
+
+    }
+
+	
+	
+	
 	
 ?>
 <div class="clear"></div>
@@ -93,7 +107,9 @@
 					
 					echo"<td>";
 					
-					echo"<input type = 'button' name = 'remove' value = 'x' onClick = 'redirect(".$row['item_id'].")' class='button_example'></a>";
+					echo"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type = 'button' name = 'remove' value = 'x' onClick = 'redirect(".$row['item_id'].")' class='button_example'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+					
+					echo"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type = 'button' name = 'remove' value = '✓' onClick = 'redirect2(".$row['item_id'].")' class='button_example'>";
 					//echo"<a href='' onClick = 'redirect(".$row['item_id'].")' title='Edit' class='icon-2 info-tooltip'></a>";
 					
 					
@@ -149,6 +165,14 @@
 		if(confirm("Are you Sure?")){
 			document.f1.item_id.value=item_id;
 			document.f1.action = 'remove_items.php';
+			f1.submit();
+		}
+	}
+	function redirect2(item_id){
+		alert("Here is the item id: "+ item_id);
+		if(confirm("Are you Sure?")){
+			document.f1.item_id.value = item_id;
+			document.f1.action = 'available_items.php';
 			f1.submit();
 		}
 	}

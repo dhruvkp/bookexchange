@@ -30007,6 +30007,10 @@ CREATE TABLE `User` (
 INSERT INTO `User` (`user_id`, `firstname`, `lastname`, `address1`, `address2`, `zipcode`, `gender`, `contact_no`, `dob`, `email`, `username`, `password_hash`, `status`) VALUES
 (1, 'Dhruvkumar', 'Patel', '2200 Waterview Pkwy', 'Apt 30304', '75080', 'Male', '4694383038', '1992-01-30', 'dhruvkumarr.patel51@gmail.com', 'dhruvkp', '5f4dcc3b5aa765d61d8327deb882cf99', 'under_review');
 
+INSERT INTO `User` (`user_id`, `firstname`, `lastname`, `address1`, `address2`, `zipcode`, `gender`, `contact_no`, `dob`, `email`, `username`, `password_hash`, `status`) VALUES
+(2, 'Ishan', 'Desai', '7825 McCallum blvd', 'Apt 30304', '75080', 'Male', '4694380988', '1992-01-30', 'dhruvkumarr.pel51@gmail.com', 'idesai1210', '5f4dcc3b5aa765d61d8327deb882cf99', 'under_review');
+
+
 -- --------------------------------------------------------
 
 --

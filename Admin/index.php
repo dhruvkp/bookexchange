@@ -1,5 +1,20 @@
 <?php 
-include 'header.php';
+
+session_start();
+    if(!isset($_SESSION['userid']))
+   {
+    header("location:/bookexchange/login.php");
+   }
+   else
+   {
+    include 'header.php';
+
+
+    
+    }
+
+
+
 ?>
 <div class="clear"></div>
 <!--  start nav-outer -->

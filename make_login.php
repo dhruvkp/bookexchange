@@ -16,11 +16,15 @@
         $row = $result->fetch_assoc();
         $hash=$row['password_hash'];
         $newhash=md5($password);
-        if($newhash==$hash)
+        if($newhash==$hash && $email != 'admin')
         {
             $_SESSION['userid']=$row['user_id'];
             header("Location: user_profile.php");
         }
+		else if($newhash == $hash && $email='admin' && $password='admin'){
+			$_SESSION['userid']=$row['user_id'];
+            header("Location: /bookexchange/Admin/index.php");
+		}
         else
             echo "password is wrong.";
     }

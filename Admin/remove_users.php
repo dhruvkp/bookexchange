@@ -1,5 +1,6 @@
 <?php
     
+	
 	session_start();
     if(!isset($_SESSION['userid']))
    {
@@ -10,17 +11,20 @@
     include 'connection.php';
     connectdb();
 
-    $item_id=$_POST['item_id'];
+    $user_id=$_POST['user_id'];
 	$url=$_POST['url'];
     
-    $sql="delete from item where item_id='".$item_id."';";
+    $sql="delete from user where user_id='".$user_id."';";
     $result = query($sql);
 	header('Location:'.$url);
+    
     }
 
 	
 	
 	
-    
+	
+	
+	
     
 ?>
