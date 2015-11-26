@@ -135,6 +135,7 @@ session_start();
         $('.edit').editable('editprofile.php', {
        type     : 'textarea',
        submit   : 'OK',
+       tooltip   : 'Click to edit...',
        callback : function(value, settings) {
            console.log(this);
            console.log(value);
