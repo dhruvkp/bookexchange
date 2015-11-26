@@ -147,6 +147,7 @@ session_start();
            console.log(this);
            console.log(value);
            console.log(settings);
+           location.reload();
        }
    });
      });
