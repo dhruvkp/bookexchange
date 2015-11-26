@@ -14,7 +14,7 @@ session_start();
          <div class="container">
                         <form enctype="multipart/form-data" action="postbook_event.php" id="register_form" method="POST">
                                 <div class="register-top-grid">
-                                        <h3>ITEM INFORMATION</h3>
+                                        <h3>ITEM INFORMATION</h3><hr style="margin-top:1px;margin-bottom:20px">
                                         <div class="top">
                                             <span>Title<label>*</label></span>
                                             <input name="title" type="text">
