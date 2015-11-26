@@ -5,7 +5,7 @@
     include 'connection.php';
     connectdb();
 	
-	$sql = "select user_id,type_id, category_id, title, author, description, item_condition, availability_type from item where post_status ='unavailable';";
+	$sql = "select item_id,user_id,type_id, category_id, title, author, description, item_condition, availability_type from item where post_status ='unavailable';";
 	
 	$itemsr_list = array();
 	$result = query($sql);
@@ -42,7 +42,7 @@
 			<!--  start table-content  -->
 			<div id="table-content">
 			
-				
+				<form name='f1' method='post' >
 				<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
 				<tr>
 					
@@ -59,7 +59,7 @@
 				<?php if($result->num_rows != 0){
 				while($row = $result->fetch_assoc()) {
 						
-						array_push($itemsr_list,array('user_id'=>$row['user_id'],'type_id'=>$row['type_id'],'category_id'=>$row['category_id'],'title'=>$row['title'],'author'=>$row['author'],'description'=>$row['description'],'item_condition'=>$row['item_condition'],'availability_type'=>$row['availability_type']));
+						array_push($itemsr_list,array('item_id'=>$row['item_id'],'user_id'=>$row['user_id'],'type_id'=>$row['type_id'],'category_id'=>$row['category_id'],'title'=>$row['title'],'author'=>$row['author'],'description'=>$row['description'],'item_condition'=>$row['item_condition'],'availability_type'=>$row['availability_type']));
 						
 						$sql1 = "select username from user where user_id ='".$row['user_id']."';";
 						$sql2 = "select type_name from itemtype where type_id ='".$row['type_id']."';";
@@ -92,8 +92,10 @@
 					echo"<td>".$row['description']."</td>";
 					
 					echo"<td>";
-					echo"<a href='' title='Edit' class='icon-2 info-tooltip'></a>";
-					echo"<a href='' title='Edit' class='icon-5 info-tooltip'></a>";
+					
+					echo"<input type = 'button' name = 'remove' value = 'x' onClick = 'redirect(".$row['item_id'].")' class='button_example'></a>";
+					//echo"<a href='' onClick = 'redirect(".$row['item_id'].")' title='Edit' class='icon-2 info-tooltip'></a>";
+					
 					
 					echo"</td>";
 					
@@ -111,7 +113,9 @@
 				
 				</table>
 			
-			
+			<input type='hidden' value='' name = 'item_id' id = 'item-id'/>
+			<input type='hidden' value='display_un_items.php' name = 'url' id = 'url'/>
+			</form>
 			</div>
 			<!--  end content-table  -->
 		
@@ -138,6 +142,17 @@
 <!--  end content-outer........................................................END -->
 
 <div class="clear">&nbsp;</div>
+
+<script>
+	function redirect(item_id){
+		alert("Here is the item _ id: "+item_id);
+		if(confirm("Are you Sure?")){
+			document.f1.item_id.value=item_id;
+			document.f1.action = 'remove_items.php';
+			f1.submit();
+		}
+	}
+</script>
 			
 <?php
 include 'footer.php';
