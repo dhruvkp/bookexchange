@@ -17,7 +17,7 @@
                             echo '<div class="row shop_box-top">';
                         }
                         echo '<div class="col-md-3 shop_box"><a href="single.php?id='.$row['item_id'].'">
-                    <img src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'" class="img-responsive" alt=""/>
+                    <img src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'" class="img-responsive" height="293" width="182" alt=""/>
                     <span class="new-box">';
                         if ($row['item_condition']=='new')
                             echo '<span class="new-label">New</span>';
@@ -34,7 +34,7 @@
                         <p>'.$row['author'].'</p>
                         <span class="actual">$'.$row['price'].'</span><br>
                         <ul class="add-to-links">
-                            <li id="remove"><a href="#"><img src="images/wish2.png" alt="">Remove from wishlist</a></li>
+                            <li id="remove"><a href="#"><img src="images/wish2.png" height="293" width="182" alt="">Remove from wishlist</a></li>
                             <div class="clear"> </div>
                         </ul>
                     </div>

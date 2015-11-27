@@ -17,7 +17,7 @@
                             echo '<div class="row shop_box-top">';
                         }
                         echo '<div class="col-md-3 shop_box"><a href="single.php?id='.$row['item_id'].'">
-                    <img src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'" class="img-responsive" alt=""/>
+                    <img src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'" class="img-responsive" height="293" width="182" alt=""/>
                     <span class="new-box">';
                         if ($row['item_condition']=='new')
                             echo '<span class="new-label">New</span>';
@@ -40,11 +40,11 @@
                             $res2=query($sql);
                             if($res2->num_rows>0)
                             {
-                                echo '<ul class="add-to-links"><li><a href="#" class="wishlist" id="'.$row['item_id'].'" data-wish="added"><img src="images/wish2.png" alt=""/>Remove from Wishlist</a></li><div class="clear"> </div></ul>';
+                                echo '<ul class="add-to-links"><li><a href="#" class="wishlist" id="'.$row['item_id'].'" data-wish="added"><img src="images/wish2.png" height="293" width="182" alt=""/>Remove from Wishlist</a></li><div class="clear"> </div></ul>';
                             }
                             else
                             {
-                                echo '<ul class="add-to-links"><li><a href="#" class="wishlist" id="'.$row['item_id'].'" data-wish="not added"><img src="images/wish.png" alt=""/>Add to Wishlist</a></li><div class="clear"> </div></ul>';
+                                echo '<ul class="add-to-links"><li><a href="#" class="wishlist" id="'.$row['item_id'].'" data-wish="not added"><img src="images/wish.png" height="293" width="182" alt=""/>Add to Wishlist</a></li><div class="clear"> </div></ul>';
                             }
                         }
 

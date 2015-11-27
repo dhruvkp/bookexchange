@@ -73,11 +73,11 @@
                             $res2=query($sql);
                             if($res2->num_rows>0)
                             {
-                                echo '<ul class="add-to-links"><li><a href="#" class="wishlist" id="'.$row['item_id'].'" data-wish="added"><img src="images/wish2.png" alt=""/>Remove from Wishlist</a></li><div class="clear"> </div></ul>';
+                                echo '<ul class="add-to-links"><li><a href="#" class="wishlist" id="'.$row['item_id'].'" data-wish="added"><img src="images/wish2.png" height="293" width="182" alt=""/>Remove from Wishlist</a></li><div class="clear"> </div></ul>';
                             }
                             else
                             {
-                                echo '<ul class="add-to-links"><li><a href="#" class="wishlist" id="'.$row['item_id'].'" data-wish="not added"><img src="images/wish.png" alt=""/>Add to Wishlist</a></li><div class="clear"> </div></ul>';
+                                echo '<ul class="add-to-links"><li><a href="#" class="wishlist" id="'.$row['item_id'].'" data-wish="not added"><img src="images/wish.png" height="293" width="182" alt=""/>Add to Wishlist</a></li><div class="clear"> </div></ul>';
                             }
                         }
 				   ?>
@@ -117,7 +117,7 @@
 							if($cnt>2)
 								break;
 							echo '<div class="col-md-4 product1">
-					<img src="data:image/jpeg;base64,'.base64_encode( $row2['image'] ).'" alt=""/>
+					<img src="data:image/jpeg;base64,'.base64_encode( $row2['image'] ).'" height="293" width="182" alt=""/>
 					<div class="shop_desc"><a href="single.php?id='.$row2['item_id'].'">
 						</a><h3><a href="single.php?id='.$row2['item_id'].'"></a><a href="#">'.$row2['title'].'</a></h3>
 						<p>'.$row2['author'].'</p>
