@@ -13,7 +13,7 @@
 						$sql="select * from Item where item_id=".$_GET['id'];
 						$res=query($sql);
 						$row=$res->fetch_assoc();
-						echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'" alt=""/>';
+						echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'" height="293" width="182" alt=""/>';
 					?>
 					</div>
 				        <!-- end product_slider -->
