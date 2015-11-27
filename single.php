@@ -117,7 +117,7 @@
 							if($cnt>2)
 								break;
 							echo '<div class="col-md-4 product1">
-					<img src="data:image/jpeg;base64,'.base64_encode( $row2['image'] ).'" height="293" width="182" alt=""/>
+					<img src="data:image/jpeg;base64,'.base64_encode( $row2['image'] ).'" height="170" width="100" alt=""/>
 					<div class="shop_desc"><a href="single.php?id='.$row2['item_id'].'">
 						</a><h3><a href="single.php?id='.$row2['item_id'].'"></a><a href="#">'.$row2['title'].'</a></h3>
 						<p>'.$row2['author'].'</p>

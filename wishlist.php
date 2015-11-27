@@ -17,7 +17,7 @@
                             echo '<div class="row shop_box-top">';
                         }
                         echo '<div class="col-md-3 shop_box"><a href="single.php?id='.$row['item_id'].'">
-                    <img src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'" class="img-responsive" height="293" width="182" alt=""/>
+                    <img src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'"  height="293" width="182" alt=""/>
                     <span class="new-box">';
                         if ($row['item_condition']=='new')
                             echo '<span class="new-label">New</span>';
