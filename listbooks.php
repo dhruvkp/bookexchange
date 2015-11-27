@@ -30,7 +30,7 @@
                         <span class="sale-label">'.$row['availability_type'].'</span>
                     </span>
                     <div class="shop_desc">
-                        <h3><a href="#">'.$row['title'].'</a></h3>
+                        <h3><a href="single.php?id='.$row['item_id'].'">'.$row['title'].'</a></h3>
                         <p>'.$row['author'].'</p>
                         <span class="actual">$'.$row['price'].'</span><br>
                         <ul class="add-to-links">
@@ -38,7 +38,7 @@
                             <div class="clear"> </div>
                         </ul>
                     </div>
-                </a></div>';
+                    </a></div>';
                     if($cnt%4==3)
                     {
                         echo '</div>';

@@ -7,7 +7,7 @@
             <?php
                 include 'connection/connection.php';
                 connectdb();
-                $sql="select * from Item where user_id=".$_SESSION['userid'];
+                $sql="select * from Item, Wishlist where Item.item_id=Wishlist.item_id and Wishlist.user_id=".$_SESSION['userid'];
                 $res=query($sql);
                     $cnt=0;
                     while($row=$res->fetch_assoc())
@@ -30,11 +30,11 @@
                         <span class="sale-label">'.$row['availability_type'].'</span>
                     </span>
                     <div class="shop_desc">
-                        <h3><a href="#">'.$row['title'].'</a></h3>
+                        <h3><a href="single.php?id='.$row['item_id'].'">'.$row['title'].'</a></h3>
                         <p>'.$row['author'].'</p>
                         <span class="actual">$'.$row['price'].'</span><br>
                         <ul class="add-to-links">
-                            <li id="remove"><a href="#">Remove from wishlist</a></li>
+                            <li id="remove"><a href="#"><img src="images/wish2.png" alt="">Remove from wishlist</a></li>
                             <div class="clear"> </div>
                         </ul>
                     </div>

@@ -7,7 +7,7 @@
             <?php
                 include 'connection/connection.php';
                 connectdb();
-                $sql="select * from Item";
+                $sql="select * from Item where post_status='available'";
                 $res=query($sql);
                     $cnt=0;
                     while($row=$res->fetch_assoc())
@@ -30,21 +30,32 @@
                         <span class="sale-label">'.$row['availability_type'].'</span>
                     </span>
                     <div class="shop_desc">
-                        <h3><a href="#">'.$row['title'].'</a></h3>
+                        <h3><a href="single.php?id='.$row['item_id'].'">'.$row['title'].'</a></h3>
                         <p>'.$row['author'].'</p>
-                        <span class="actual">$'.$row['price'].'</span><br>
-                        <ul class="add-to-links">
-                            <li id="wishlist"><img src="images/wish.png" alt=""><a href="#">Add To Wishlist</a></li>
-                            <div class="clear"> </div>
-                        </ul>
-                    </div>
-                </a></div>';
+                        <span class="actual">$'.$row['price'].'</span><br>';
+
+                        if(isset($_SESSION['userid']))
+                        {
+                            $sql='select * from Wishlist where user_id='.$_SESSION['userid'].' and item_id='.$row['item_id'];
+                            $res2=query($sql);
+                            if($res2->num_rows>0)
+                            {
+                                echo '<ul class="add-to-links"><li><a href="#" class="wishlist" id="'.$row['item_id'].'" data_wish="added"><img src="images/wish2.png" alt=""/>Remove from Wishlist</a></li><div class="clear"> </div></ul>';
+                            }
+                            else
+                            {
+                                echo '<ul class="add-to-links"><li><a href="#" class="wishlist" id="'.$row['item_id'].'" data_wish="not added"><img src="images/wish.png" alt=""/>Add to Wishlist</a></li><div class="clear"> </div></ul>';
+                            }
+                        }
+
+                        echo'</div>
+                    </a></div>';
                     if($cnt%4==3)
                     {
                         echo '</div>';
                     }
                     $cnt=$cnt+1;
-                    }
+                }
             ?>
          </div>
        </div>

@@ -45,9 +45,23 @@
 								 <input type="submit" value="buy now" title="">
 							  </form>
 							</div> -->
-							<ul class="add-to-links">
-    			              <li id="wishlist"><img src="images/wish.png" alt=""><a href="#">Add to wishlist</a></li>
-    			            </ul>
+							<?php
+							if(isset($_SESSION['userid']))
+                                {
+                                  echo '<ul class="add-to-links">
+                            <li class="wishlist" id="'.$row['item_id'].'""><img src="';
+                            $sql='select * from Wishlist where user_id='.$_SESSION['userid'].' and item_id='.$row['item_id'];
+                            $res=query($sql);
+                            if($res->num_rows>0)
+                                echo 'images/wish2.png" alt=""><a href="#">Remove from Wishlist</a></li>
+                            <div class="clear"> </div>
+                        </ul>';
+                            else
+                                echo 'images/wish.png" alt=""><a href="#">Add to Wishlist</a></li>
+                            <div class="clear"> </div>
+                        </ul>';
+                                }
+							?>
 							<div class="social_buttons">
 								<button type="button" class="btn1 btn1-default1 btn1-twitter" onclick="">
 					              <i class="icon-twitter"></i> Tweet
@@ -68,9 +82,21 @@
 				<div class="col-md-3">
 				  <div class="box-info-product">
 					<p class="price2">$<?=$row['price'];?></p>
-					<ul class="add-to-links">
-    			              <li><img src="images/wish.png" alt=""><a href="#">Add to wishlist</a></li>
-    			            </ul>
+					<?php
+					if(isset($_SESSION['userid']))
+                        {
+                            $sql='select * from Wishlist where user_id='.$_SESSION['userid'].' and item_id='.$row['item_id'];
+                            $res2=query($sql);
+                            if($res2->num_rows>0)
+                            {
+                                echo '<ul class="add-to-links"><li><a href="#" class="wishlist" id="'.$row['item_id'].'" data_wish="added"><img src="images/wish2.png" alt=""/>Remove from Wishlist</a></li><div class="clear"> </div></ul>';
+                            }
+                            else
+                            {
+                                echo '<ul class="add-to-links"><li><a href="#" class="wishlist" id="'.$row['item_id'].'" data_wish="not added"><img src="images/wish.png" alt=""/>Add to Wishlist</a></li><div class="clear"> </div></ul>';
+                            }
+                        }
+				   ?>
 				   </div>
 			   </div>
 			</div>
@@ -93,7 +119,7 @@
 							</ul>
 			</div>
 			<?php
-					$sql="select * from Item where category_id=".$row['category_id'];
+					$sql="select * from Item where post_status='available' and category_id=".$row['category_id'];
 					$res=query($sql);
 					if($res->num_rows>0)
 					{
@@ -111,13 +137,21 @@
 					<div class="shop_desc"><a href="single.php?id='.$row2['item_id'].'">
 						</a><h3><a href="single.php?id='.$row2['item_id'].'"></a><a href="#">'.$row2['title'].'</a></h3>
 						<p>'.$row2['author'].'</p>
-						<span class="actual">$'.$row2['price'].'</span><br>
-						<ul class="add-to-links">
-							<li id="wishlist"><img src="images/wish.png" alt=""><a href="#">Add To Wishlist</a></li>
-							<div class="clear"> </div>
-					    </ul>
-				    </div>
-				</div>';
+						<span class="actual">$'.$row2['price'].'</span><br>';
+						if(isset($_SESSION['userid']))
+                        {
+                            $sql='select * from Wishlist where user_id='.$_SESSION['userid'].' and item_id='.$row2['item_id'];
+                            $res2=query($sql);
+                            if($res2->num_rows>0)
+                            {
+                                echo '<ul class="add-to-links"><li><a href="#" class="wishlist" id="'.$row2['item_id'].'" data_wish="added"><img src="images/wish2.png" alt=""/>Remove from Wishlist</a></li><div class="clear"> </div></ul>';
+                            }
+                            else
+                            {
+                                echo '<ul class="add-to-links"><li><a href="#" class="wishlist" id="'.$row2['item_id'].'" data_wish="not added"><img src="images/wish.png" alt=""/>Add to Wishlist</a></li><div class="clear"> </div></ul>';
+                            }
+                        }
+					echo'</div></div>';
 							$cnt+=1;
 						}
 

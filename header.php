@@ -15,6 +15,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery-ui.min.js"></script>
@@ -50,6 +51,47 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             $("#flagSwitcher").click(function() {
                 $(".dropdown img.flag").toggleClass("flagvisibility");
             });
+
+            $(".wishlist").click(function(e){
+                var item_id=e.target.id;
+                var type=$(e.target).attr('data_wish');
+                console.log(type);
+                if(type=='added')
+                {
+                  $.get('wishlist_action.php',{action:'remove',id:item_id}).done(function(){
+                    console.log(item_id);
+                    $('#'+item_id).find('img').attr('src','images/wish.png');
+                    $('#'+item_id).get(0).lastChild.nodeValue = 'Add to Wishlist';
+                  });
+                }
+                else
+                {
+                  $.get('wishlist_action.php',{action:'add',id:item_id}).done(function(){
+                    $('#'+item_id).find('img').attr('src','images/wish2.png');
+                    $('#'+item_id).get(0).lastChild.nodeValue = 'Remove from Wishlist';
+                  });
+                }
+            });
+
+             $( "#datepicker" ).datepicker();
+             $("#zipcode").blur(function(){
+               var zip=$('#zipcode').val();
+               $.get("zipcode_ajax.php",{zipcode:zip}).done(function(data){
+                 if(data!="NILL")
+                 {
+                   var array=data.split(',');
+                   $('#city').val(array[0]);
+                   $('#state').val(array[1]);
+                   $('#country').val(array[2]);
+                 }
+                 else
+                 {
+                   $('#city').val('');
+                   $('#state').val('');
+                   $('#country').val('');
+                 }
+               });
+             });
         });
      </script>
  </head>
