@@ -54,7 +54,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
             $(".wishlist").click(function(e){
                 var item_id=e.target.id;
-                var type=$(e.target).attr('data_wish');
+                var type=$(e.target).attr('data-wish');
                 console.log(type);
                 if(type=='added')
                 {
@@ -62,6 +62,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     console.log(item_id);
                     $('#'+item_id).find('img').attr('src','images/wish.png');
                     $('#'+item_id).get(0).lastChild.nodeValue = 'Add to Wishlist';
+                    $('#'+item_id).attr('data-wish','not added');
                   });
                 }
                 else
@@ -69,6 +70,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                   $.get('wishlist_action.php',{action:'add',id:item_id}).done(function(){
                     $('#'+item_id).find('img').attr('src','images/wish2.png');
                     $('#'+item_id).get(0).lastChild.nodeValue = 'Remove from Wishlist';
+                    $('#'+item_id).attr('data-wish','added');
                   });
                 }
             });

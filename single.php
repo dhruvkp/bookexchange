@@ -45,23 +45,7 @@
 								 <input type="submit" value="buy now" title="">
 							  </form>
 							</div> -->
-							<?php
-							if(isset($_SESSION['userid']))
-                                {
-                                  echo '<ul class="add-to-links">
-                            <li class="wishlist" id="'.$row['item_id'].'""><img src="';
-                            $sql='select * from Wishlist where user_id='.$_SESSION['userid'].' and item_id='.$row['item_id'];
-                            $res=query($sql);
-                            if($res->num_rows>0)
-                                echo 'images/wish2.png" alt=""><a href="#">Remove from Wishlist</a></li>
-                            <div class="clear"> </div>
-                        </ul>';
-                            else
-                                echo 'images/wish.png" alt=""><a href="#">Add to Wishlist</a></li>
-                            <div class="clear"> </div>
-                        </ul>';
-                                }
-							?>
+
 							<div class="social_buttons">
 								<button type="button" class="btn1 btn1-default1 btn1-twitter" onclick="">
 					              <i class="icon-twitter"></i> Tweet
@@ -89,11 +73,11 @@
                             $res2=query($sql);
                             if($res2->num_rows>0)
                             {
-                                echo '<ul class="add-to-links"><li><a href="#" class="wishlist" id="'.$row['item_id'].'" data_wish="added"><img src="images/wish2.png" alt=""/>Remove from Wishlist</a></li><div class="clear"> </div></ul>';
+                                echo '<ul class="add-to-links"><li><a href="#" class="wishlist" id="'.$row['item_id'].'" data-wish="added"><img src="images/wish2.png" alt=""/>Remove from Wishlist</a></li><div class="clear"> </div></ul>';
                             }
                             else
                             {
-                                echo '<ul class="add-to-links"><li><a href="#" class="wishlist" id="'.$row['item_id'].'" data_wish="not added"><img src="images/wish.png" alt=""/>Add to Wishlist</a></li><div class="clear"> </div></ul>';
+                                echo '<ul class="add-to-links"><li><a href="#" class="wishlist" id="'.$row['item_id'].'" data-wish="not added"><img src="images/wish.png" alt=""/>Add to Wishlist</a></li><div class="clear"> </div></ul>';
                             }
                         }
 				   ?>
@@ -144,11 +128,11 @@
                             $res2=query($sql);
                             if($res2->num_rows>0)
                             {
-                                echo '<ul class="add-to-links"><li><a href="#" class="wishlist" id="'.$row2['item_id'].'" data_wish="added"><img src="images/wish2.png" alt=""/>Remove from Wishlist</a></li><div class="clear"> </div></ul>';
+                                echo '<ul class="add-to-links"><li><a href="#" class="wishlist" id="'.$row2['item_id'].'" data-wish="added"><img src="images/wish2.png" alt=""/>Remove from Wishlist</a></li><div class="clear"> </div></ul>';
                             }
                             else
                             {
-                                echo '<ul class="add-to-links"><li><a href="#" class="wishlist" id="'.$row2['item_id'].'" data_wish="not added"><img src="images/wish.png" alt=""/>Add to Wishlist</a></li><div class="clear"> </div></ul>';
+                                echo '<ul class="add-to-links"><li><a href="#" class="wishlist" id="'.$row2['item_id'].'" data-wish="not added"><img src="images/wish.png" alt=""/>Add to Wishlist</a></li><div class="clear"> </div></ul>';
                             }
                         }
 					echo'</div></div>';
