@@ -34,7 +34,7 @@
                         <p>'.$row['author'].'</p>
                         <span class="actual">$'.$row['price'].'</span><br>
                         <ul class="add-to-links">
-                            <li id="remove"><a href="#"><img src="images/wish2.png" height="293" width="182" alt="">Remove from wishlist</a></li>
+                            <li id="remove"><a href="#"><img src="images/wish2.png" alt="">Remove from wishlist</a></li>
                             <div class="clear"> </div>
                         </ul>
                     </div>
