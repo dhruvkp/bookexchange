@@ -2,12 +2,75 @@
     include 'header.php';
 ?>
      <div class="main">
-      <div class="shop_top">
+     <div class="row">
+     <div class="col-sm-3 ">
+         <div class="row  panel">
+            <div class="col-md-12 well ">
+                <p class="panelFontsize">Find books in your city:</p>
+                <br/>
+                <div class="col-md-12 ">
+                    <input class="innerFont" type="text" placeholder="Select city"/>
+
+                </div>
+
+            </div>
+             <div class="col-md-12 well">
+                <p class="panelFontsize">Looking For:</p>
+                <br/>
+                <div class="col-md-12 ">
+                    <input type="checkbox" name="Book" value="1">&nbsp;<text class="innerFont">Book</text>
+
+                </div>
+                <div class="col-md-12">
+                    <input class="space" type="checkbox" name="Magazine" value="1">&nbsp;<text class="innerFont">Magazine</text>
+
+                </div>
+
+            </div>
+             <div class="col-md-12 well">
+                <p class="panelFontsize">Posted On:</p>
+                <br/>
+                <div class="col-md-12 ">
+                    <input type="checkbox"  name="Book" value="1">&nbsp;<text class="innerFont">Sell</text>
+                </div>
+                <div class="col-md-12">
+                    <input type="checkbox" class="space" name="Book" value="1">&nbsp;<text class="innerFont">Rent</text>
+                </div>
+                <div class="col-md-12">
+                    <input type="checkbox" class="space" name="Book" value="1">&nbsp;<text class="innerFont">Exchange</text>
+                </div>
+            </div>
+             <div class="col-md-12 well">
+                <p class="panelFontsize">Filter by Catagory:</p>
+                <br/>
+                <div class="col-md-12 ">
+                    <input type="checkbox"  name="Book" value="1">&nbsp;<text class="innerFont">Sports</text>
+                </div>
+                <div class="col-md-12">
+                    <input type="checkbox" class="space" name="Book" value="1">&nbsp;<text class="innerFont">Movies</text>
+                </div>
+                <div class="col-md-12">
+                    <input type="checkbox" class="space" name="Book" value="1">&nbsp;<text class="innerFont">Fiction</text>
+                </div>
+                <div class="col-md-12">
+                    <input type="checkbox" class="space" name="Book" value="1">&nbsp;<text class="innerFont">Sci-Fi</text>
+                </div>
+               <div class="col-md-12">
+                    <input type="checkbox" class="space" name="Book" value="1">&nbsp;<text class="innerFont">History</text>
+                </div>
+                <div class="col-md-12">
+                    <input type="checkbox" class="space" name="Book" value="1">&nbsp;<text class="innerFont">Study</text>
+                </div>
+            </div>
+         </div>
+     </div>
+
+      <div class="shop_top col-md-8">
         <div class="container">
             <?php
                 include 'connection/connection.php';
                 connectdb();
-                $term=$_POST['search'];
+                $term=$_GET['search'];
                 $sql="select * from Item where post_status='available' and (title like '%".$term."%' or description like '%".$term."%' or author like '%".$term."%')";
                 $res=query($sql);
                     $cnt=0;
@@ -18,7 +81,7 @@
                             echo '<div class="row shop_box-top">';
                         }
                         echo '<div class="col-md-3 shop_box"><a href="single.php?id='.$row['item_id'].'">
-                    <img src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'" class="img-responsive" alt=""/>
+                    <img src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'" height="293" width="182" alt=""/>
                     <span class="new-box">';
                         if ($row['item_condition']=='new')
                             echo '<span class="new-label">New</span>';
@@ -60,7 +123,8 @@
             ?>
          </div>
        </div>
-      </div>
+    </div>
+</div>
 <?php
     include 'footer.php';
 ?>
