@@ -10,28 +10,28 @@
                 <br/>
                 <div class="col-md-12 ">
                     <input class="innerFont" type="text" placeholder="Select city"/>
-                    
+
                 </div>
-               
-            </div>  
+
+            </div>
              <div class="col-md-12 well">
                 <p class="panelFontsize">Looking For:</p>
                 <br/>
                 <div class="col-md-12 ">
                     <input type="checkbox" name="Book" value="1">&nbsp;<text class="innerFont">Book</text>
-                    
+
                 </div>
                 <div class="col-md-12">
                     <input class="space" type="checkbox" name="Magazine" value="1">&nbsp;<text class="innerFont">Magazine</text>
-                    
+
                 </div>
-                
-            </div>  
+
+            </div>
              <div class="col-md-12 well">
                 <p class="panelFontsize">Posted On:</p>
                 <br/>
                 <div class="col-md-12 ">
-                    <input type="checkbox"  name="Book" value="1">&nbsp;<text class="innerFont">Sell</text>                    
+                    <input type="checkbox"  name="Book" value="1">&nbsp;<text class="innerFont">Sell</text>
                 </div>
                 <div class="col-md-12">
                     <input type="checkbox" class="space" name="Book" value="1">&nbsp;<text class="innerFont">Rent</text>
@@ -44,24 +44,24 @@
                 <p class="panelFontsize">Filter by Catagory:</p>
                 <br/>
                 <div class="col-md-12 ">
-                    <input type="checkbox"  name="Book" value="1">&nbsp;<text class="innerFont">Sports</text>                      
+                    <input type="checkbox"  name="Book" value="1">&nbsp;<text class="innerFont">Sports</text>
                 </div>
                 <div class="col-md-12">
-                    <input type="checkbox" class="space" name="Book" value="1">&nbsp;<text class="innerFont">Movies</text>                  
+                    <input type="checkbox" class="space" name="Book" value="1">&nbsp;<text class="innerFont">Movies</text>
                 </div>
                 <div class="col-md-12">
-                    <input type="checkbox" class="space" name="Book" value="1">&nbsp;<text class="innerFont">Fiction</text>             
+                    <input type="checkbox" class="space" name="Book" value="1">&nbsp;<text class="innerFont">Fiction</text>
                 </div>
                 <div class="col-md-12">
-                    <input type="checkbox" class="space" name="Book" value="1">&nbsp;<text class="innerFont">Sci-Fi</text>          
+                    <input type="checkbox" class="space" name="Book" value="1">&nbsp;<text class="innerFont">Sci-Fi</text>
                 </div>
                <div class="col-md-12">
-                    <input type="checkbox" class="space" name="Book" value="1">&nbsp;<text class="innerFont">History</text>             
+                    <input type="checkbox" class="space" name="Book" value="1">&nbsp;<text class="innerFont">History</text>
                 </div>
                 <div class="col-md-12">
-                    <input type="checkbox" class="space" name="Book" value="1">&nbsp;<text class="innerFont">Study</text>                
+                    <input type="checkbox" class="space" name="Book" value="1">&nbsp;<text class="innerFont">Study</text>
                 </div>
-            </div>     
+            </div>
          </div>
      </div>
 
