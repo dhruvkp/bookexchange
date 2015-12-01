@@ -9,7 +9,7 @@
                 <p class="panelFontsize">Find books in your city:</p>
                 <br/>
                 <div class="col-md-12 ">
-                    <input class="innerFont" type="text" placeholder="Select city"/>
+                    <input id="city-filter" class="innerFont" type="text" placeholder="Select city"/>
 
                 </div>
 
@@ -17,14 +17,16 @@
              <div class="col-md-12 well">
                 <p class="panelFontsize">Looking For:</p>
                 <br/>
-                <div class="col-md-12 ">
-                    <input type="checkbox" name="Book" value="1">&nbsp;<text class="innerFont">Book</text>
-
-                </div>
-                <div class="col-md-12">
-                    <input class="space" type="checkbox" name="Magazine" value="1">&nbsp;<text class="innerFont">Magazine</text>
-
-                </div>
+                <?php
+                    include 'connection/connection.php';
+                    connectdb();
+                    $sql="select category_name from Category";
+                    $res=query($sql);
+                    while($row=$res->fetch_assoc())
+                    {
+                        echo '<div class="col-md-12 "><input type="checkbox" name="'.$row['category_name'].'">&nbsp;<text class="innerFont">'.$row['category_name'].'</text></div>';
+                    }
+                ?>
 
             </div>
              <div class="col-md-12 well">
@@ -43,33 +45,33 @@
              <div class="col-md-12 well">
                 <p class="panelFontsize">Filter by Catagory:</p>
                 <br/>
-                <div class="col-md-12 ">
-                    <input type="checkbox"  name="Book" value="1">&nbsp;<text class="innerFont">Sports</text>
-                </div>
-                <div class="col-md-12">
-                    <input type="checkbox" class="space" name="Book" value="1">&nbsp;<text class="innerFont">Movies</text>
-                </div>
-                <div class="col-md-12">
-                    <input type="checkbox" class="space" name="Book" value="1">&nbsp;<text class="innerFont">Fiction</text>
-                </div>
-                <div class="col-md-12">
-                    <input type="checkbox" class="space" name="Book" value="1">&nbsp;<text class="innerFont">Sci-Fi</text>
-                </div>
-               <div class="col-md-12">
-                    <input type="checkbox" class="space" name="Book" value="1">&nbsp;<text class="innerFont">History</text>
-                </div>
-                <div class="col-md-12">
-                    <input type="checkbox" class="space" name="Book" value="1">&nbsp;<text class="innerFont">Study</text>
-                </div>
+                <?php
+                    $sql="select category_name from Category";
+                    $res=query($sql);
+                    while($row=$res->fetch_assoc())
+                    {
+                        echo '<div class="col-md-12 "><input type="checkbox" class="space" name="'.$row['category_name'].'" value="1">&nbsp;<text class="innerFont">'.$row['category_name'].'</text></div>';
+                    }
+                ?>
             </div>
          </div>
      </div>
 
+     <script type="text/javascript">
+        $('#city-filter').bind("enterKey",function(e){
+
+        });
+        $('#city-filter').keyup(function(e){
+            if(e.keyCode == 13)
+            {
+                $(this).trigger("enterKey");
+            }
+        });
+    </script>
+
       <div class="shop_top col-md-8">
         <div class="container">
             <?php
-                include 'connection/connection.php';
-                connectdb();
                 $term=$_GET['search'];
                 $sql="select * from Item where post_status='available' and (title like '%".$term."%' or description like '%".$term."%' or author like '%".$term."%')";
                 $res=query($sql);

@@ -33,10 +33,7 @@
                         <h3><a href="single.php?id='.$row['item_id'].'">'.$row['title'].'</a></h3>
                         <p>'.$row['author'].'</p>
                         <span class="actual">$'.$row['price'].'</span><br>
-                        <ul class="add-to-links">
-                            <li id="remove"><a href="#"><img src="images/wish2.png" alt="">Remove from wishlist</a></li>
-                            <div class="clear"> </div>
-                        </ul>
+                        <ul class="add-to-links"><li><a href="#" class="wishlist" id="'.$row['item_id'].'" data-wish="added"><img src="images/wish2.png"  alt=""/>Remove from Wishlist</a></li><div class="clear"> </div></ul>
                     </div>
                 </a></div>';
                     if($cnt%4==3)

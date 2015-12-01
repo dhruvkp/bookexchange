@@ -9,7 +9,7 @@
 										<h3>PERSONAL INFORMATION</h3>
 										<div class="top">
 											<span>First Name<label>*</label></span>
-											<input name="firstname" type="text">
+											<input name="firstname" type="text" required>
 										</div>
 										<div class="top">
 											<span>Last Name<label>*</label></span>

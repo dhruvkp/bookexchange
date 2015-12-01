@@ -17,12 +17,12 @@ session_start();
     }
     if(!empty($_GET['message']))
      {
-    
+
       $message = $_GET['message'];
-    
-      echo $message; 
+
+      echo $message;
   }
-    
+
 ?>
 <!-- <div class="row" style="font-family: 'Open Sans', sans-serif;">
            <div class="col-md-offset-2 col-md-8" style="margin-top:15px">
