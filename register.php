@@ -8,8 +8,8 @@
 								<div class="register-top-grid">
 										<h3>PERSONAL INFORMATION</h3>
 										<div class="top">
-											<span><label>First Name*</label></span>
-											<input name="firstname" type="text" class = "required" />
+											<span>First Name<label>*</label></span>
+											<input name="firstname" type="text" required/>
 										</div>
 										
 										<div class="top">

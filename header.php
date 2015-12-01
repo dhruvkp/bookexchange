@@ -13,7 +13,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link rel="stylesheet" href="css/fwslider.css" media="all">
 <link rel="stylesheet" href="css/simple-sidebar.css" media="all">
 <link rel="stylesheet" type="text/css" href="css/sdstyle.css">
-<link href="css/validetta.css" rel="stylesheet" type="text/css" media="screen" >
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -23,8 +22,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="js/jquery-ui.min.js"></script>
 <script src="js/fwslider.js"></script>
 <script src="js/jeditable.js"></script>
-<script type="text/javascript" src="js/jquery.validate.min.js"></script>
-
 <link rel="stylesheet" href="css/jquery-ui.css">
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script>
@@ -40,8 +37,7 @@ $(function() {
 <script type="text/javascript">
         $(document).ready(function() {
 			
-			$("#register_form").validate();
-			$(".register_form").validate();
+			
 			
             $(".dropdown img.flag").addClass("flagvisibility");
 
