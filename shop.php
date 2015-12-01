@@ -70,7 +70,10 @@
                 }
             });
             $.get('filter_results.php',myobj).done(function(data){
-                $('#main-container').get(0).innerHTML=data;
+                if(data=="")
+                    $('#main-container').get(0).innerHTML="<p>No items found.</p>";
+                else
+                    $('#main-container').get(0).innerHTML=data;
             });
         });
     </script>

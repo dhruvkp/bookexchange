@@ -60,11 +60,11 @@
      </div>
 
     <script type="text/javascript">
-        
+
             $( "#city-filter" ).autocomplete({
                 source: 'city-filter.php'
             });
-        
+
 
         $(".filter").change(function(){
             var myobj=new Object();
@@ -78,6 +78,9 @@
                 }
             });
             $.get('filter_results.php',myobj).done(function(data){
+                if(data=="")
+                    $('#main-container').get(0).innerHTML="<p>No items found.</p>";
+                else
                 $('#main-container').get(0).innerHTML=data;
             });
         });
