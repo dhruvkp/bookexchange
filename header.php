@@ -24,7 +24,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="js/jeditable.js"></script>
 
 <link rel="stylesheet" href="css/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script>
 $(function() {
