@@ -1,7 +1,7 @@
 <?php
     include 'header.php';
 ?>
-<div class="main">
+     <div class="main">
      <div class="row">
      <div class="col-sm-3 ">
          <div class="row  panel">

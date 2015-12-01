@@ -23,6 +23,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="js/fwslider.js"></script>
 <script src="js/jeditable.js"></script>
 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script>
+$(function() {
+    $( "#search" ).autocomplete({
+        source: 'autocomplete.php'
+    });
+});
+</script>
+
+
+
 <script type="text/javascript">
         $(document).ready(function() {
             $(".dropdown img.flag").addClass("flagvisibility");
@@ -137,9 +150,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
                 <div class="header_right">
                   <!-- start search-->
-                   <div class="search-box">
+                   <div class="search-box ui-widget">
                             <div id="sb-search" class="sb-search">
                                 <form action="search.php" method="GET">
+                                  <label for="skills">Skills: </label>
                                     <input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
                                     <input class="sb-search-submit" type="submit" value="">
                                     <span class="sb-icon-search"> </span>

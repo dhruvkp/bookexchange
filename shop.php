@@ -3,7 +3,7 @@
 ?>
      <div class="main">
      <div class="row">
-     <div class="col-sm-3 ">
+     <div class="col-sm-3" style="padding: 5% 0;">
          <div class="row  panel">
              <div class="col-md-12 well ">
                 <p class="panelFontsize">Find books in your city:</p>
@@ -83,7 +83,7 @@
                     $cnt=0;
                     while($row=$res->fetch_assoc())
                     {
-                        if($cnt%4==0)
+                        if($cnt%3==0)
                         {
                             echo '<div class="row shop_box-top">';
                         }
@@ -121,7 +121,7 @@
 
                         echo'</div>
                     </a></div>';
-                    if($cnt%4==3)
+                    if($cnt%3==2)
                     {
                         echo '</div>';
                     }
