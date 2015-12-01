@@ -128,6 +128,7 @@ $(function() {
                             <ul class="nav" id="nav">
                               <li><a href="shop.php">Catalog</a></li>
                               <?php
+								error_reporting(E_ERROR);
                                 session_start();
                                 if(!isset($_SESSION['userid']))
                                 {
