@@ -8,13 +8,18 @@
 								<div class="register-top-grid">
 										<h3>PERSONAL INFORMATION</h3>
 										<div class="top">
-											<span>First Name<label>*</label></span>
-											<input name="firstname" type="text" required>
+											<span><label>First Name*</label></span>
+											<input name="firstname" type="text" class = "required" />
 										</div>
+										
 										<div class="top">
 											<span>Last Name<label>*</label></span>
 											<input name="lastname" type="text">
 										</div>
+										<br>
+										<br>
+										<br>
+										<br>
 										<div class="top">
 											<span>Email Address<label>*</label></span>
 											<input name="email" type="text">
