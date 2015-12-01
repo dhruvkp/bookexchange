@@ -8,7 +8,7 @@
              <div class="col-md-12 well ">
                 <p class="panelFontsize">Find books in your city:</p>
                 <br/>
-                <div class="col-md-12 ">
+                <div class="col-md-12 ui-widget" style="font-size:12px;font-family: 'Open Sans', sans-serif;" >
                     <input id="city-filter" class="innerFont filter" type="text" placeholder="Select city"/>
 
                 </div>
@@ -58,6 +58,12 @@
      </div>
 
     <script type="text/javascript">
+       
+          $( "#city-filter" ).autocomplete({
+                source: 'city-filter.php'
+            });
+
+
         $(".filter").change(function(){
             var myobj=new Object();
             myobj.city=$('#city-filter').val();
