@@ -1,15 +1,15 @@
 <?php
     include 'header.php';
 ?>
-     <div class="main">
+<div class="main">
      <div class="row">
      <div class="col-sm-3 ">
          <div class="row  panel">
-            <div class="col-md-12 well ">
+             <div class="col-md-12 well ">
                 <p class="panelFontsize">Find books in your city:</p>
                 <br/>
                 <div class="col-md-12 ">
-                    <input id="city-filter" class="innerFont" type="text" placeholder="Select city"/>
+                    <input id="city-filter" class="innerFont filter" type="text" placeholder="Select city"/>
 
                 </div>
 
@@ -20,11 +20,11 @@
                 <?php
                     include 'connection/connection.php';
                     connectdb();
-                    $sql="select category_name from Category";
+                    $sql="select type_name from ItemType";
                     $res=query($sql);
                     while($row=$res->fetch_assoc())
                     {
-                        echo '<div class="col-md-12 "><input type="checkbox" name="'.$row['category_name'].'">&nbsp;<text class="innerFont">'.$row['category_name'].'</text></div>';
+                        echo '<div class="col-md-12 "><input type="checkbox" class="filter" data-type="type_name" id="'.$row['type_name'].'" name="'.$row['type_name'].'" value="1">&nbsp;<text class="innerFont">'.$row['type_name'].'</text></div>';
                     }
                 ?>
 
@@ -33,13 +33,13 @@
                 <p class="panelFontsize">Posted On:</p>
                 <br/>
                 <div class="col-md-12 ">
-                    <input type="checkbox"  name="Book" value="1">&nbsp;<text class="innerFont">Sell</text>
+                    <input class="filter" type="checkbox"  id="sell" data-type="availability_type" name="Book" value="1">&nbsp;<text class="innerFont">Sell</text>
                 </div>
                 <div class="col-md-12">
-                    <input type="checkbox" class="space" name="Book" value="1">&nbsp;<text class="innerFont">Rent</text>
+                    <input class="filter" type="checkbox" id="rent" data-type="availability_type" class="space" name="Book" value="1">&nbsp;<text class="innerFont">Rent</text>
                 </div>
                 <div class="col-md-12">
-                    <input type="checkbox" class="space" name="Book" value="1">&nbsp;<text class="innerFont">Exchange</text>
+                    <input class="filter" type="checkbox" id="exchange" data-type="availability_type" class="space" name="Book" value="1">&nbsp;<text class="innerFont">Exchange</text>
                 </div>
             </div>
              <div class="col-md-12 well">
@@ -50,27 +50,32 @@
                     $res=query($sql);
                     while($row=$res->fetch_assoc())
                     {
-                        echo '<div class="col-md-12 "><input type="checkbox" class="space" name="'.$row['category_name'].'" value="1">&nbsp;<text class="innerFont">'.$row['category_name'].'</text></div>';
+                        echo '<div class="col-md-12 "><input class="filter" type="checkbox" data-type="category_name" id="'.$row['category_name'].'" class="space" name="'.$row['category_name'].'" value="1">&nbsp;<text class="innerFont">'.$row['category_name'].'</text></div>';
                     }
                 ?>
             </div>
          </div>
      </div>
 
-     <script type="text/javascript">
-        $('#city-filter').bind("enterKey",function(e){
-
-        });
-        $('#city-filter').keyup(function(e){
-            if(e.keyCode == 13)
-            {
-                $(this).trigger("enterKey");
-            }
+    <script type="text/javascript">
+        $(".filter").change(function(){
+            var myobj=new Object();
+            myobj.city=$('#city-filter').val();
+            $("input:checkbox.filter").each(function(){
+                if(this.checked){
+                    if (typeof myobj[$(this).attr('data-type')] !== 'undefined')
+                        myobj[$(this).attr('data-type')].push($(this).attr('id'));
+                    else
+                        myobj[$(this).attr('data-type')]=[$(this).attr('id')];
+                }
+            });
+            $.get('filter_results.php',myobj).done(function(data){
+                $('#main-container').get(0).innerHTML=data;
+            });
         });
     </script>
-
       <div class="shop_top col-md-8">
-        <div class="container">
+        <div class="container" id="main-container">
             <?php
                 $term=$_GET['search'];
                 $sql="select * from Item where post_status='available' and (title like '%".$term."%' or description like '%".$term."%' or author like '%".$term."%')";
