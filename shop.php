@@ -3,7 +3,7 @@
 ?>
      <div class="main">
      <div class="row">
-     <div class="col-sm-3" style="padding: 5% 0;">
+     <div class="col-sm-3 toppadd" >
          <div class="row  panel">
              <div class="col-md-12 well ">
                 <p class="panelFontsize">Find books in your city:</p>
