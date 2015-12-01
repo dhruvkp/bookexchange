@@ -29,7 +29,7 @@ $res=query($sql);
 $cnt=0;
 while($row=$res->fetch_assoc())
 {
-    if($cnt%4==0)
+    if($cnt%3==0)
     {
         echo '<div class="row shop_box-top">';
     }
@@ -67,7 +67,7 @@ while($row=$res->fetch_assoc())
 
             echo'</div>
         </a></div>';
-        if($cnt%4==3)
+        if($cnt%3==2)
         {
             echo '</div>';
         }
