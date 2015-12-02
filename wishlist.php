@@ -1,7 +1,7 @@
 <?php
     include 'header.php';
 ?>
-     <div class="main">
+     <div class="main" style="min-height:500px;">
       <div class="shop_top">
         <div class="container">
             <?php
@@ -10,6 +10,10 @@
                 $sql="select * from Item, Wishlist where Item.item_id=Wishlist.item_id and Wishlist.user_id=".$_SESSION['userid'];
                 $res=query($sql);
                     $cnt=0;
+                    if($res->num_rows==0)
+                    {
+                        echo '<div class="row"><h3>There are no items in your wishlist. You can save items from catalog to your wishlist.</h3></div>';
+                    }
                     while($row=$res->fetch_assoc())
                     {
                         if($cnt%4==0)
