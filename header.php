@@ -88,6 +88,8 @@ $(function() {
                     $('#'+item_id).attr('data-wish','added');
                   });
                 }
+                if(location.href.indexOf('wishlist')!=-1)
+                  location.reload();
             });
 
              $( "#datepicker" ).datepicker();
