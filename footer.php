@@ -9,12 +9,12 @@
                               <li class="facebook"><a href="http://www.facebook.com"><span> </span></a></li>
                               <li class="twitter"><a href="http://www.twitter.com"><span> </span></a></li>
                               <li class="pinterest"><a href="http://www.pintrest.com"><span> </span></a></li>
-                              
+
                             </ul>
                     </div>
-                    
+
                 </div>
-               
+
             </div>
         </div>
 </body>

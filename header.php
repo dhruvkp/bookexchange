@@ -36,9 +36,9 @@ $(function() {
 
 <script type="text/javascript">
         $(document).ready(function() {
-			
-			
-			
+
+
+
             $(".dropdown img.flag").addClass("flagvisibility");
 
             $(".dropdown dt a").click(function() {
