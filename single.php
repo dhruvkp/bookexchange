@@ -116,17 +116,29 @@
 								continue;
 							if($cnt>2)
 								break;
-							echo '<div class="col-md-4 product1">
-					<img src="data:image/jpeg;base64,'.base64_encode( $row2['image'] ).'" height="170" width="100" alt=""/>
-					<div class="shop_desc"><a href="single.php?id='.$row2['item_id'].'">
-						</a><h3><a href="single.php?id='.$row2['item_id'].'"></a><a href="#">'.$row2['title'].'</a></h3>
-						<p>'.$row2['author'].'</p>
-						<span class="actual">$'.$row2['price'].'</span><br>';
-						if(isset($_SESSION['userid']))
+                        echo '<div class="col-md-3 shop_box" data-city="'.$row2['city_name'].'" data-type="'.$row2['type_name'].'" data-category="'.$row2['category_name'].'" data-for="'.$row2['availability_type'].'"><a href="single.php?id='.$row2['item_id'].'"><div style="height:300px;overflow:hidden;">
+                    <img src="data:image/jpeg;base64,'.base64_encode( $row2['image'] ).'" style="width:100%" alt=""/></div>
+                    <span class="new-box">';
+                        if ($row2['item_condition']=='new')
+                            echo '<span class="new-label">New</span>';
+                        elseif($row2['item_condition']=='used')
+                            echo '<span class="used-label">Used</span>';
+                        else
+                            echo '<span class="mint-label">Mint</span>';
+                    echo '</span>
+                    <span class="sale-box">
+                        <span class="sale-label">'.$row2['availability_type'].'</span>
+                    </span>
+                    <div class="shop_desc">
+                        <h3><a href="single.php?id='.$row2['item_id'].'">'.$row2['title'].'</a></h3>
+                        <p>'.$row2['author'].'</p>
+                        <span class="actual">$'.$row2['price'].'</span><br>';
+
+                        if(isset($_SESSION['userid']))
                         {
                             $sql='select * from Wishlist where user_id='.$_SESSION['userid'].' and item_id='.$row2['item_id'];
                             $res2=query($sql);
-                            if($res2->num_rows>0)
+                            if($res2->num_row2s>0)
                             {
                                 echo '<ul class="add-to-links"><li><a href="#" class="wishlist" id="'.$row2['item_id'].'" data-wish="added"><img src="images/wish2.png" alt=""/>Remove from Wishlist</a></li><div class="clear"> </div></ul>';
                             }
@@ -135,8 +147,10 @@
                                 echo '<ul class="add-to-links"><li><a href="#" class="wishlist" id="'.$row2['item_id'].'" data-wish="not added"><img src="images/wish.png" alt=""/>Add to Wishlist</a></li><div class="clear"> </div></ul>';
                             }
                         }
-					echo'</div></div>';
-							$cnt+=1;
+
+                        echo'</div>
+                    </a></div>';
+ 							$cnt+=1;
 						}
 
 					}
