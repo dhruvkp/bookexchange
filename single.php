@@ -114,7 +114,7 @@
 						{
 							if($row2['item_id']==$row['item_id'])
 								continue;
-							if($cnt>2)
+                            if($cnt>3)
 								break;
                         echo '<div class="col-md-3 shop_box" data-city="'.$row2['city_name'].'" data-type="'.$row2['type_name'].'" data-category="'.$row2['category_name'].'" data-for="'.$row2['availability_type'].'"><a href="single.php?id='.$row2['item_id'].'"><div style="height:300px;overflow:hidden;">
                     <img src="data:image/jpeg;base64,'.base64_encode( $row2['image'] ).'" style="width:100%" alt=""/></div>
