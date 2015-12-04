@@ -7,7 +7,7 @@
             <?php
                 include 'connection/connection.php';
                 connectdb();
-                $sql="select * from Item, Wishlist where Item.item_id=Wishlist.item_id and Wishlist.user_id=".$_SESSION['userid'];
+                $sql="select * from Item, Wishlist where Item.item_id=Wishlist.item_id and Item.post_status='available' and Wishlist.user_id=".$_SESSION['userid'];
                 $res=query($sql);
                     $cnt=0;
                     if($res->num_rows==0)
