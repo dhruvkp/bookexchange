@@ -11,7 +11,9 @@ session_start();
 			<div class="col-md-6">
 				 <div class="login-page">
 					<h4 class="title">New Customers</h4>
-					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis</p>
+					<p>The only place to buy, sell, exchange or donate books 
+						within your Institute/City.</p>
+						<p>Create an account to see a new world of change.</p>
 					<div class="button1">
 					   <a href="register.php"><input type="submit" name="Submit" value="Create an Account"></a>
 					 </div>
